@@ -30,7 +30,7 @@ namespace NSrtm.Core
             var foundfile = new DirectoryInfo(_directory).EnumerateFiles(filename, SearchOption.AllDirectories)
                                                         .FirstOrDefault();
             if (foundfile != null) return foundfile.FullName;
-            else throw new NSrtm.Core.NSrtmFileNotFoundException(coords.CornerCoords);
+            else throw new NSrtm.Core.NSrtmFileNotFoundException(coords);
         }
 
         [NotNull]

@@ -20,7 +20,7 @@ namespace NSrtm.Demo
                                                          HgtElevationProvider.CreateInMemoryFromZipFiles(@"C:\mc\SRTM3ZIP"),
                                                          HgtElevationProvider.CreateInMemoryFromRawFiles(@"C:\mc\SRTM3HGT"),
                                                          HgtElevationProvider.CreateDirectDiskAccessFromRawFiles(@"C:\mc\SRTM3HGT"),
-                                                         AdfElevationProvider.CreateDirectDiskAccessFromRawFiles(@"C:\mc\EGS2008ZIP"),
+                                                         AdfElevationProvider.CreateInMemoryFromZipFiles(@"C:\mc\EGS2008ZIP"),
                                                      });
         }
     }

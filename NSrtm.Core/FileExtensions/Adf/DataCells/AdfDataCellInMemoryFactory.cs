@@ -7,9 +7,9 @@ namespace NSrtm.Core
 {
     internal class AdfDataCellInMemoryFactory : IAdfDataCellFactory
     {
-        private readonly IHgtDataLoader _loader;
+        private readonly IAdfDataLoader _loader;
 
-        public AdfDataCellInMemoryFactory([NotNull] IHgtDataLoader loader)
+        public AdfDataCellInMemoryFactory([NotNull] IAdfDataLoader loader)
         {
             _loader = loader;
         }
@@ -17,14 +17,14 @@ namespace NSrtm.Core
         public IDataCell GetCellFor(AdfCellCoords coords)
         {
             var data = _loader.LoadFromFile(coords);
-            return new AdfDataCellInMemory(data, HgtUtils.PointsPerCellFromDataLength(data.Length), coords);
+            return new AdfDataCellInMemory(data, HgtUtils.PointsPerCellEdgeFromDataLength(data.Length), coords);
         }
 
         public async Task<IDataCell> GetCellForAsync(AdfCellCoords coords)
         {
             var data = await _loader.LoadFromFileAsync(coords);
 
-            return new AdfDataCellInMemory(data, HgtUtils.PointsPerCellFromDataLength(data.Length), coords);
+            return new AdfDataCellInMemory(data, HgtUtils.PointsPerCellEdgeFromDataLength(data.Length), coords);
         }
 
         private class AdfDataCellInMemory : AdfDataCellBase

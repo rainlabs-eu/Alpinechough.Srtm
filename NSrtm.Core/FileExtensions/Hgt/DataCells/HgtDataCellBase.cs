@@ -16,8 +16,8 @@ namespace NSrtm.Core
 
         public double GetElevation(double latitude, double longitude)
         {
-            int localLat = (int)((latitude - _coords.CornerCoords.LeftUpperCornerLat) * _pointsPerCell);
-            int localLon = (int)((longitude - _coords.CornerCoords.LeftUpperCornerLon) * _pointsPerCell);
+            int localLat = (int)((latitude - _coords.LeftDownCornerLat) * _pointsPerCell);
+            int localLon = (int)((longitude - _coords.LeftDownCornerLon) * _pointsPerCell);
             int bytesPos = ((_pointsPerCell - localLat - 1) * _pointsPerCell * 2) + localLon * 2;
 
             if (bytesPos < 0 || bytesPos > _pointsPerCell * _pointsPerCell * 2)

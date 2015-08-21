@@ -10,7 +10,7 @@ namespace NSrtm.Core
 
         protected override string coordsToFilename(HgtCellCoords coords)
         {
-            return coords.CornerCoords.ToBaseName() + ".hgt.zip";
+            return coords.ToBaseName() + ".hgt.zip";
         }
     }
 }

@@ -10,7 +10,8 @@ namespace NSrtm.Core
 
         protected override string coordsToFilename(AdfCellCoords coords)
         {
-            return coords.CornerCoords.ToBaseName() + ".adf";
+            var baseName = coords.ToBaseName();
+            return baseName + baseName + baseName + "w001001.adf";
         }
     }
 }

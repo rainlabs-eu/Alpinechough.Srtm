@@ -72,12 +72,12 @@
     <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverRaw.cs" />
     <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverZip.cs" />
     <Compile Include="FileExtensions\Adf\PathResolvers\IAdfPathResolver.cs" />
+    <Compile Include="FileExtensions\Adf\Utils\ICellCoords.cs" />
     <Compile Include="FileExtensions\DataCells\IDataCell.cs" />
     <Compile Include="FileExtensions\Adf\DataCells\IAdfDataCellFactory.cs" />
     <Compile Include="FileExtensions\Adf\Utils\AdfCellCoords.cs" />
     <Compile Include="FileExtensions\Adf\Utils\AdfUtils.cs" />
     <Compile Include="FileExtensions\Exceptions\NSrtmFileNotFoundException.cs" />
-    <Compile Include="FileExtensions\Utils\CellCoords.cs" />
     <Compile Include="FileExtensions\Hgt\DataCells\HgtDataCellInFileFactory.cs" />
     <Compile Include="FileExtensions\Hgt\Loaders\HgtDataLoaderFromFileStreamBase.cs" />
     <Compile Include="FileExtensions\Hgt\Utils\HgtCellCoords.cs" />
