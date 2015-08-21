@@ -4,16 +4,16 @@ using JetBrains.Annotations;
 
 namespace NSrtm.Core
 {
-    internal class HgtDataCellInvalid : IHgtDataCell
+    internal class DataCellInvalid : IDataCell
     {
-        private static readonly HgtDataCellInvalid invalid = new HgtDataCellInvalid();
+        private static readonly DataCellInvalid invalid = new DataCellInvalid();
         private static readonly Task<double> invalidElevationTask = Task.FromResult(Double.NaN);
 
-        private HgtDataCellInvalid()
+        private DataCellInvalid()
         {
         }
 
-        [NotNull] public static HgtDataCellInvalid Invalid { get { return invalid; } }
+        [NotNull] public static DataCellInvalid Invalid { get { return invalid; } }
 
         public double GetElevation(double latitude, double longitude)
         {
