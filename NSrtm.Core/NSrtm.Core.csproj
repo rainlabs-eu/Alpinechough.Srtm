@@ -63,6 +63,11 @@
     <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellBase.cs" />
     <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellInFileFactory.cs" />
     <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellInMemoryFactory.cs" />
+    <Compile Include="FileExtensions\Adf\AdfElevationProvider.cs" />
+    <Compile Include="FileExtensions\Adf\Loaders\AdfDataLoaderFromFileStreamBase.cs" />
+    <Compile Include="FileExtensions\Adf\Loaders\AdfDataLoaderFromRaw.cs" />
+    <Compile Include="FileExtensions\Adf\Loaders\AdfDataLoaderFromZip.cs" />
+    <Compile Include="FileExtensions\Adf\Loaders\IAdfDataLoader.cs" />
     <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverCaching.cs" />
     <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverRaw.cs" />
     <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverZip.cs" />
