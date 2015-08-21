@@ -72,7 +72,7 @@ namespace NSrtm.Core
             {
                 ret = await _cellFactory.GetCellForAsync(coords);
             }
-            catch (HgtFileException)
+            catch (NSrtmFileException)
             {
                 ret = DataCellInvalid.Invalid;
             }
@@ -89,7 +89,7 @@ namespace NSrtm.Core
             {
                 return _cellFactory.GetCellFor(coords);
             }
-            catch (HgtFileException)
+            catch (NSrtmFileException)
             {
                 return DataCellInvalid.Invalid;
             }
