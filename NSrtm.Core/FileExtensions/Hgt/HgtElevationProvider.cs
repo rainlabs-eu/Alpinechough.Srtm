@@ -12,7 +12,7 @@ namespace NSrtm.Core
     public class HgtElevationProvider : IElevationProvider
     {
         private readonly IHgtDataCellFactory _cellFactory;
-        private readonly ConcurrentDictionary<HgtCellCoords, IHgtDataCell> _cache = new ConcurrentDictionary<HgtCellCoords, IHgtDataCell>();
+        private readonly ConcurrentDictionary<HgtCellCoords, IDataCell> _cache = new ConcurrentDictionary<HgtCellCoords, IDataCell>();
 
         internal HgtElevationProvider([NotNull] IHgtDataCellFactory cellFactory)
         {
@@ -56,7 +56,7 @@ namespace NSrtm.Core
         public Task<double> GetElevationAsync(double latitude, double longitude)
         {
             var coords = HgtCellCoords.ForLatLon(latitude, longitude);
-            IHgtDataCell cellFromCache;
+            IDataCell cellFromCache;
             if (_cache.TryGetValue(coords, out cellFromCache))
             {
                 cellFromCache.GetElevationAsync(latitude, longitude);
@@ -67,14 +67,14 @@ namespace NSrtm.Core
 
         private async Task<double> buildAndCacheCellAndReturnElevationAsync(HgtCellCoords coords, double latitude, double longitude)
         {
-            IHgtDataCell ret;
+            IDataCell ret;
             try
             {
                 ret = await _cellFactory.GetCellForAsync(coords);
             }
             catch (HgtFileException)
             {
-                ret = HgtDataCellInvalid.Invalid;
+                ret = DataCellInvalid.Invalid;
             }
 
             var cell = _cache.GetOrAdd(coords, ret);
@@ -83,7 +83,7 @@ namespace NSrtm.Core
         }
 
         [NotNull]
-        private IHgtDataCell buildCellFor(HgtCellCoords coords)
+        private IDataCell buildCellFor(HgtCellCoords coords)
         {
             try
             {
@@ -91,7 +91,7 @@ namespace NSrtm.Core
             }
             catch (HgtFileException)
             {
-                return HgtDataCellInvalid.Invalid;
+                return DataCellInvalid.Invalid;
             }
         }
 

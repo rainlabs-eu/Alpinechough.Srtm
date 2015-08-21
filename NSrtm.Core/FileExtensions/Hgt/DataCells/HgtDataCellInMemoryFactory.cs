@@ -14,13 +14,13 @@ namespace NSrtm.Core
             _loader = loader;
         }
 
-        public IHgtDataCell GetCellFor(HgtCellCoords coords)
+        public IDataCell GetCellFor(HgtCellCoords coords)
         {
             var data = _loader.LoadFromFile(coords);
             return new HgtDataCellInMemory(data, HgtUtils.PointsPerCellFromDataLength(data.Length), coords);
         }
 
-        public async Task<IHgtDataCell> GetCellForAsync(HgtCellCoords coords)
+        public async Task<IDataCell> GetCellForAsync(HgtCellCoords coords)
         {
             var data = await _loader.LoadFromFileAsync(coords);
 

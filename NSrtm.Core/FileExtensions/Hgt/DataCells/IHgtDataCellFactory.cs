@@ -6,9 +6,9 @@ namespace NSrtm.Core
     internal interface IHgtDataCellFactory
     {
         [NotNull]
-        IHgtDataCell GetCellFor(HgtCellCoords coords);
+        IDataCell GetCellFor(HgtCellCoords coords);
 
         [NotNull]
-        Task<IHgtDataCell> GetCellForAsync(HgtCellCoords coords);
+        Task<IDataCell> GetCellForAsync(HgtCellCoords coords);
     }
 }

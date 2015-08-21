@@ -16,7 +16,7 @@ namespace NSrtm.Core
         }
 
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",Justification = "Returned cell is disposable")]
-        public IHgtDataCell GetCellFor(HgtCellCoords coords)
+        public IDataCell GetCellFor(HgtCellCoords coords)
         {
             var path = _pathResolver.FindFilePath(coords);
 
@@ -34,7 +34,7 @@ namespace NSrtm.Core
             }
         }
 
-        public Task<IHgtDataCell> GetCellForAsync(HgtCellCoords coords)
+        public Task<IDataCell> GetCellForAsync(HgtCellCoords coords)
         {
             return Task.FromResult(GetCellFor(coords));
         }
