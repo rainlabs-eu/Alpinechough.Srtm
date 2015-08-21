@@ -8,9 +8,9 @@ namespace NSrtm.Core
 {
     internal class AdfDataCellInFileFactory : IAdfDataCellFactory
     {
-        private readonly IHgtPathResolver _pathResolver;
+        private readonly IAdfPathResolver _pathResolver;
 
-        public AdfDataCellInFileFactory([NotNull] IHgtPathResolver pathResolver)
+        public AdfDataCellInFileFactory([NotNull] IAdfPathResolver pathResolver)
         {
             _pathResolver = pathResolver;
         }

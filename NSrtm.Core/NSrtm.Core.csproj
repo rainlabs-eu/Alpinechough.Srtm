@@ -63,10 +63,15 @@
     <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellBase.cs" />
     <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellInFileFactory.cs" />
     <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellInMemoryFactory.cs" />
+    <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverCaching.cs" />
+    <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverRaw.cs" />
+    <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverZip.cs" />
+    <Compile Include="FileExtensions\Adf\PathResolvers\IAdfPathResolver.cs" />
     <Compile Include="FileExtensions\DataCells\IDataCell.cs" />
     <Compile Include="FileExtensions\Adf\DataCells\IAdfDataCellFactory.cs" />
     <Compile Include="FileExtensions\Adf\Utils\AdfCellCoords.cs" />
     <Compile Include="FileExtensions\Adf\Utils\AdfUtils.cs" />
+    <Compile Include="FileExtensions\Hgt\Exceptions\HgtFileNotFoundException.cs" />
     <Compile Include="FileExtensions\Utils\CellCoords.cs" />
     <Compile Include="FileExtensions\Hgt\DataCells\HgtDataCellInFileFactory.cs" />
     <Compile Include="FileExtensions\Hgt\Loaders\HgtDataLoaderFromFileStreamBase.cs" />
@@ -75,7 +80,6 @@
     <Compile Include="FileExtensions\Hgt\Loaders\HgtDataLoaderFromRaw.cs" />
     <Compile Include="FileExtensions\Hgt\Exceptions\HgtFileException.cs" />
     <Compile Include="FileExtensions\Hgt\Exceptions\HgtFileInvalidException.cs" />
-    <Compile Include="FileExtensions\Hgt\Exceptions\HgtFileNotFoundException.cs" />
     <Compile Include="FileExtensions\Hgt\DataCells\HgtDataCellInMemoryFactory.cs" />
     <Compile Include="FileExtensions\Hgt\Loaders\HgtDataLoaderFromZip.cs" />
     <Compile Include="FileExtensions\Hgt\PathResolvers\HgtPathResolverCaching.cs" />
