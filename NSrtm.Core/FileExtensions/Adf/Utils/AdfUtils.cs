@@ -4,10 +4,12 @@ namespace NSrtm.Core
 {
     static internal class AdfUtils
     {
-        private const int egm1PointsPerCell = 2701;
-        private const int egm25PointsPerCell = 1081;
-        private const int egm1PointsCount = egm25PointsPerCell * egm25PointsPerCell * 2;
-        private const int egm25PointsCount = egm1PointsPerCell * egm1PointsPerCell * 2;
+        private const int egm1CellWidthPoints = 21600;
+        private const int egm25CellWidthPoints = 8640;
+        private const int egm1CellHightPoints = 10801;
+        private const int egm25CellHightPoints = 4321;
+        private const int egm1PointsCount = egm1CellWidthPoints * egm1CellHightPoints;
+        private const int egm25PointsCount = egm25CellWidthPoints * egm25CellHightPoints;
 
 
         internal static int PointsPerCellFromDataLength(int length)
@@ -16,10 +18,10 @@ namespace NSrtm.Core
             switch (length)
             {
                 case egm1PointsCount: // EGM 2008 2.5'
-                    pointsPerCell = egm25PointsPerCell;
+                    pointsPerCell = egm1CellHightPoints;
                     break;
                 case egm25PointsCount: // EGM 2008 1'
-                    pointsPerCell = egm1PointsPerCell;
+                    pointsPerCell = egm25CellHightPoints;
                     break;
                 default:
                     throw new ArgumentException(String.Format("Unsupported data length {0}", length), "length");

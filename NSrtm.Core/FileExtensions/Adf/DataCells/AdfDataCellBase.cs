@@ -14,13 +14,15 @@ namespace NSrtm.Core
             _coords = coords;
         }
 
+        protected abstract double ElevationAtOffset(int bytesPos);
+
         public double GetElevation(double latitude, double longitude)
         {
-            int localLat = (int)((latitude - _coords.LeftUpperCornerLat) * _pointsPerCell);
-            int localLon = (int)((longitude - _coords.LeftUpperCornerLon) * _pointsPerCell);
-            int bytesPos = ((_pointsPerCell - localLat - 1) * _pointsPerCell * 2) + localLon * 2;
+            int localLat = (int)((_coords.LeftUpperCornerLat - latitude) / 180.0 * _pointsPerCell);
+            int localLon = (int)((_coords.LeftUpperCornerLon - longitude) / 360.0 * (_pointsPerCell - 1) * 2);
+            int bytesPos = (localLat * (_pointsPerCell - 1) * 2) + localLon;
 
-            if (bytesPos < 0 || bytesPos > _pointsPerCell * _pointsPerCell * 2)
+            if (bytesPos < 0 || bytesPos > _pointsPerCell * (_pointsPerCell-1) * 2)
                 throw new ArgumentException("latitude or longitude out of range");
 
             return ElevationAtOffset(bytesPos);
@@ -28,6 +30,5 @@ namespace NSrtm.Core
 
         public abstract long MemorySize { get; }
         public abstract Task<double> GetElevationAsync(double latitude, double longitude);
-        protected abstract double ElevationAtOffset(int bytesPos);
     }
 }

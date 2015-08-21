@@ -47,7 +47,7 @@ namespace NSrtm.Core
 
         public static AdfCellCoords ForLatLon(double latitude, double longitude)
         {
-            return new AdfCellCoords((int)Math.Floor(latitude), (int)Math.Floor(longitude));
+            return new AdfCellCoords((int)Math.Floor(latitude/45.0) * 45, (int)Math.Floor(longitude/45.0)*45);
         }
 
         public string ToBaseName()

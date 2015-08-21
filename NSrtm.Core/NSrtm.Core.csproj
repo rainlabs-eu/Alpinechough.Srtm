@@ -69,8 +69,6 @@
     <Compile Include="FileExtensions\Adf\Loaders\AdfDataLoaderFromZip.cs" />
     <Compile Include="FileExtensions\Adf\Loaders\IAdfDataLoader.cs" />
     <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverCaching.cs" />
-    <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverRaw.cs" />
-    <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverZip.cs" />
     <Compile Include="FileExtensions\Adf\PathResolvers\IAdfPathResolver.cs" />
     <Compile Include="FileExtensions\Adf\Utils\ICellCoords.cs" />
     <Compile Include="FileExtensions\DataCells\IDataCell.cs" />

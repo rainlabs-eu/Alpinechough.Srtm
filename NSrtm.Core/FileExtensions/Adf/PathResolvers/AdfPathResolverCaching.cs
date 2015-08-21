@@ -5,7 +5,7 @@ using JetBrains.Annotations;
 
 namespace NSrtm.Core
 {
-    internal abstract class AdfPathResolverCaching : IAdfPathResolver
+    internal class AdfPathResolverCaching : IAdfPathResolver
     {
         private readonly ConcurrentDictionary<AdfCellCoords, string> _cache = new ConcurrentDictionary<AdfCellCoords, string>();
         private readonly string _directory;
@@ -23,8 +23,8 @@ namespace NSrtm.Core
         [NotNull]
         private string findPathForFile(AdfCellCoords coords)
         {
-            string filename = coordsToFilename(coords);
-            var path = Path.Combine(_directory, filename);
+            string filename = "UUnd_min2.5x2.5_egm2008_isw=82_WGS84_TideFree";
+              var path = Path.Combine(_directory, filename);
             if (File.Exists(path)) return path;
 
             var foundfile = new DirectoryInfo(_directory).EnumerateFiles(filename, SearchOption.AllDirectories)
@@ -32,8 +32,5 @@ namespace NSrtm.Core
             if (foundfile != null) return foundfile.FullName;
             else throw new NSrtm.Core.NSrtmFileNotFoundException(coords);
         }
-
-        [NotNull]
-        protected abstract string coordsToFilename(AdfCellCoords coords);
     }
 }
