@@ -17,9 +17,10 @@ namespace NSrtm.Demo
             MainWindow.Show();
             mainWindow.ViewModel = new DemoViewModel(new IElevationProvider[]
                                                      {
-                                                         HgtElevationProvider.CreateInMemoryFromZipFiles("D:\\SRTM3ZIP"),
-                                                         HgtElevationProvider.CreateInMemoryFromRawFiles("D:\\SRTM3HGT"),
-                                                         HgtElevationProvider.CreateDirectDiskAccessFromRawFiles("D:\\SRTM3HGT"),
+                                                         HgtElevationProvider.CreateInMemoryFromZipFiles(@"C:\mc\SRTM3ZIP"),
+                                                         HgtElevationProvider.CreateInMemoryFromRawFiles(@"C:\mc\SRTM3HGT"),
+                                                         HgtElevationProvider.CreateDirectDiskAccessFromRawFiles(@"C:\mc\SRTM3HGT"),
+                                                         AdfElevationProvider.CreateDirectDiskAccessFromRawFiles(@"C:\mc\EGS2008ZIP"),
                                                      });
         }
     }
