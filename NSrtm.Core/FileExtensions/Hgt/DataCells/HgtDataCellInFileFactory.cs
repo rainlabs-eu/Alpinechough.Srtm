@@ -25,7 +25,7 @@ namespace NSrtm.Core
             {
                 int fileSize = (int)new FileInfo(path).Length;
                 file = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-                return new HgtDataCellInFile(file, HgtUtils.PointsPerCellFromDataLength(fileSize), coords);
+                return new HgtDataCellInFile(file, HgtUtils.PointsPerCellEdgeFromDataLength(fileSize), coords);
             }
             catch (Exception)
             {
