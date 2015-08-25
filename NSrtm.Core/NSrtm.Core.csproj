@@ -44,6 +44,10 @@
       <HintPath>..\packages\JetBrains.Annotations.9.1.1\lib\net20\JetBrains.Annotations.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="MiscUtil, Version=1.0.0.0, Culture=neutral, PublicKeyToken=d3c42c4bfacf7596, processorArchitecture=MSIL">
+      <HintPath>\\rldc01.rainlabs.local\UserHomes$\michal.ciszewski\Documents\Visual Studio 2015\Projects\NSrtmPrivateTests\packages\JonSkeet.MiscUtil.0.1\lib\net35-Client\MiscUtil.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.IO.Compression" />
@@ -60,21 +64,24 @@
     <Compile Include="..\GlobalAssemblyInfo.cs">
       <Link>Properties\GlobalAssemblyInfo.cs</Link>
     </Compile>
-    <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellBase.cs" />
-    <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellInFileFactory.cs" />
-    <Compile Include="FileExtensions\Adf\DataCells\AdfDataCellInMemoryFactory.cs" />
-    <Compile Include="FileExtensions\Adf\AdfElevationProvider.cs" />
-    <Compile Include="FileExtensions\Adf\Loaders\AdfDataLoaderFromFileStreamBase.cs" />
-    <Compile Include="FileExtensions\Adf\Loaders\AdfDataLoaderFromRaw.cs" />
-    <Compile Include="FileExtensions\Adf\Loaders\AdfDataLoaderFromZip.cs" />
-    <Compile Include="FileExtensions\Adf\Loaders\IAdfDataLoader.cs" />
-    <Compile Include="FileExtensions\Adf\PathResolvers\AdfPathResolverCaching.cs" />
-    <Compile Include="FileExtensions\Adf\PathResolvers\IAdfPathResolver.cs" />
-    <Compile Include="FileExtensions\Adf\Utils\ICellCoords.cs" />
+    <Compile Include="FileExtensions\Pgm\DataCells\PgmDataCellBase.cs" />
+    <Compile Include="FileExtensions\Pgm\DataCells\PgmDataCellInFileFactory.cs" />
+    <Compile Include="FileExtensions\Pgm\DataCells\PgmDataCellInMemoryFactory.cs" />
+    <Compile Include="FileExtensions\Pgm\PgmElevationProvider.cs" />
+    <Compile Include="FileExtensions\Pgm\Loaders\PgmDataLoaderFromFileStreamBase.cs" />
+    <Compile Include="FileExtensions\Pgm\Loaders\PgmDataLoaderFromRaw.cs" />
+    <Compile Include="FileExtensions\Pgm\Loaders\PgmDataLoaderFromZip.cs" />
+    <Compile Include="FileExtensions\Pgm\Loaders\IPgmDataLoader.cs" />
+    <Compile Include="FileExtensions\Pgm\PathResolvers\PgmPathResolverCaching.cs" />
+    <Compile Include="FileExtensions\Pgm\PathResolvers\PgmPathResolverRaw.cs" />
+    <Compile Include="FileExtensions\Pgm\PathResolvers\PgmPathResolverZip.cs" />
+    <Compile Include="FileExtensions\Pgm\PathResolvers\IPgmPathResolver.cs" />
+    <Compile Include="FileExtensions\Pgm\Utils\PgmCellParameters.cs" />
+    <Compile Include="FileExtensions\Pgm\Utils\PgmCellParser.cs" />
+    <Compile Include="FileExtensions\Pgm\Utils\ICellCoords.cs" />
     <Compile Include="FileExtensions\DataCells\IDataCell.cs" />
-    <Compile Include="FileExtensions\Adf\DataCells\IAdfDataCellFactory.cs" />
-    <Compile Include="FileExtensions\Adf\Utils\AdfCellCoords.cs" />
-    <Compile Include="FileExtensions\Adf\Utils\AdfUtils.cs" />
+    <Compile Include="FileExtensions\Pgm\DataCells\IPgmDataCellFactory.cs" />
+    <Compile Include="FileExtensions\Pgm\Utils\PgmCellCoords.cs" />
     <Compile Include="FileExtensions\Exceptions\NSrtmFileNotFoundException.cs" />
     <Compile Include="FileExtensions\Hgt\DataCells\HgtDataCellInFileFactory.cs" />
     <Compile Include="FileExtensions\Hgt\Loaders\HgtDataLoaderFromFileStreamBase.cs" />
