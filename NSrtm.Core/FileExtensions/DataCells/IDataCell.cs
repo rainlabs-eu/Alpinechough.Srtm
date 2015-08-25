@@ -2,7 +2,7 @@ using System.Threading.Tasks;
 
 namespace NSrtm.Core
 {
-    internal interface IHgtDataCell
+    internal interface IDataCell
     {
         double GetElevation(double latitude, double longitude);
 

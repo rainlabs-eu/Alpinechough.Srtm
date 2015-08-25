@@ -10,7 +10,7 @@ namespace NSrtm.Core
         private const int srtm1Length = srtm1PointsPerCell * srtm1PointsPerCell * 2;
 
 
-        internal static int PointsPerCellFromDataLength(int length)
+        internal static int PointsPerCellEdgeFromDataLength(int length)
         {
             int pointsPerCell;
             switch (length)

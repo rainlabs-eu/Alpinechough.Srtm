@@ -16,7 +16,7 @@ namespace NSrtm.Core
         }
 
         [SuppressMessage("Microsoft.Reliability", "CA2000:Dispose objects before losing scope",Justification = "Returned cell is disposable")]
-        public IHgtDataCell GetCellFor(HgtCellCoords coords)
+        public IDataCell GetCellFor(HgtCellCoords coords)
         {
             var path = _pathResolver.FindFilePath(coords);
 
@@ -25,7 +25,7 @@ namespace NSrtm.Core
             {
                 int fileSize = (int)new FileInfo(path).Length;
                 file = File.Open(path, FileMode.Open, FileAccess.Read, FileShare.Read);
-                return new HgtDataCellInFile(file, HgtUtils.PointsPerCellFromDataLength(fileSize), coords);
+                return new HgtDataCellInFile(file, HgtUtils.PointsPerCellEdgeFromDataLength(fileSize), coords);
             }
             catch (Exception)
             {
@@ -34,7 +34,7 @@ namespace NSrtm.Core
             }
         }
 
-        public Task<IHgtDataCell> GetCellForAsync(HgtCellCoords coords)
+        public Task<IDataCell> GetCellForAsync(HgtCellCoords coords)
         {
             return Task.FromResult(GetCellFor(coords));
         }

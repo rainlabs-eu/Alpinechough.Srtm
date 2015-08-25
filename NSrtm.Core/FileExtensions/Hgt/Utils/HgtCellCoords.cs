@@ -3,23 +3,23 @@ using JetBrains.Annotations;
 
 namespace NSrtm.Core
 {
-    internal struct HgtCellCoords : IEquatable<HgtCellCoords>
+    internal struct HgtCellCoords : IEquatable<HgtCellCoords>, ICellCoords
     {
-        private readonly int _lat;
-        private readonly int _lon;
+        private readonly int _leftDownCornerLat;
+        private readonly int _leftDownCornerLon;
 
-        private HgtCellCoords(int lat, int lon)
+        private HgtCellCoords(int leftDownCornerLat, int leftDownCornerLon)
         {
-            _lat = lat;
-            _lon = lon;
+            _leftDownCornerLat = leftDownCornerLat;
+            _leftDownCornerLon = leftDownCornerLon;
         }
 
-        public int Lat { get { return _lat; } }
-        public int Lon { get { return _lon; } }
+        public int LeftDownCornerLat { get { return _leftDownCornerLat; } }
+        public int LeftDownCornerLon { get { return _leftDownCornerLon; } }
 
         public bool Equals(HgtCellCoords other)
         {
-            return _lat == other._lat && _lon == other._lon;
+            return _leftDownCornerLat == other._leftDownCornerLat && _leftDownCornerLon == other._leftDownCornerLon;
         }
 
         public override bool Equals([CanBeNull] object obj)
@@ -31,7 +31,7 @@ namespace NSrtm.Core
         {
             unchecked
             {
-                return (_lat * 397) ^ _lon;
+                return (_leftDownCornerLat * 397) ^ _leftDownCornerLon;
             }
         }
 
@@ -53,10 +53,10 @@ namespace NSrtm.Core
         public string ToBaseName()
         {
             return String.Format("{0}{1:D2}{2}{3:D3}",
-                                 _lat < 0 ? "S" : "N",
-                                 Math.Abs(_lat),
-                                 _lon < 0 ? "W" : "E",
-                                 Math.Abs(_lon));
+                                 _leftDownCornerLat < 0 ? "S" : "N",
+                                 Math.Abs(_leftDownCornerLat),
+                                 _leftDownCornerLon < 0 ? "W" : "E",
+                                 Math.Abs(_leftDownCornerLon));
         }
     }
 }
