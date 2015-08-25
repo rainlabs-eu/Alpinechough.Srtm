@@ -4,14 +4,14 @@ using JetBrains.Annotations;
 
 namespace NSrtm.Core
 {
-    internal sealed class AdfDataLoaderFromRaw : AdfDataLoaderFromFileStreamBase
+    internal sealed class PgmDataLoaderFromRaw : PgmDataLoaderFromFileStreamBase
     {
 
-        public AdfDataLoaderFromRaw([NotNull] IAdfPathResolver pathResolver) : base(pathResolver)
+        public PgmDataLoaderFromRaw([NotNull] IPgmPathResolver pathResolver) : base(pathResolver)
         {
         }
 
-        protected override byte[] LoadAdfDataFromFile(AdfCellCoords coords, string filePath)
+        protected override byte[] LoadAdfDataFromFile(string filePath)
         {
             using (var fileStream = File.Open(filePath,FileMode.Open,FileAccess.Read,FileShare.Read))
             {
@@ -19,7 +19,7 @@ namespace NSrtm.Core
             }
         }
 
-        protected override async Task<byte[]> LoadAdfDataFromFileAsync(AdfCellCoords coords, string filePath)
+        protected override async Task<byte[]> LoadAdfDataFromFileAsync(string filePath)
         {
             using (var fileStream = File.Open(filePath, FileMode.Open, FileAccess.Read, FileShare.Read))
             {

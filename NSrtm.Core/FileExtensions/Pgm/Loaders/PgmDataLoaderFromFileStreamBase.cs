@@ -4,32 +4,32 @@ using JetBrains.Annotations;
 
 namespace NSrtm.Core
 {
-    internal abstract class AdfDataLoaderFromFileStreamBase : IAdfDataLoader
+    internal abstract class PgmDataLoaderFromFileStreamBase : IPgmDataLoader
     {
-        private readonly IAdfPathResolver _pathResolver;
+        private readonly IPgmPathResolver _pathResolver;
 
-        protected AdfDataLoaderFromFileStreamBase([NotNull] IAdfPathResolver pathResolver)
+        protected PgmDataLoaderFromFileStreamBase([NotNull] IPgmPathResolver pathResolver)
         {
             _pathResolver = pathResolver;
         }
 
         [NotNull]
-        public byte[] LoadFromFile(AdfCellCoords coords)
+        public byte[] LoadFromFile()
         {
-            var filePath = _pathResolver.FindFilePath(coords);
+            var filePath = _pathResolver.FindFilePath();
 
-            return LoadAdfDataFromFile(coords, filePath);
+            return LoadAdfDataFromFile(filePath);
         }
 
-        public Task<byte[]> LoadFromFileAsync(AdfCellCoords coords)
+        public Task<byte[]> LoadFromFileAsync()
         {
-            var filePath = _pathResolver.FindFilePath(coords);
+            var filePath = _pathResolver.FindFilePath();
 
-            return LoadAdfDataFromFileAsync(coords, filePath);
+            return LoadAdfDataFromFileAsync(filePath);
         }
 
-        protected abstract byte[] LoadAdfDataFromFile(AdfCellCoords coords, [NotNull] string filePath);
-        protected abstract Task<byte[]> LoadAdfDataFromFileAsync(AdfCellCoords coords, [NotNull] string filePath);
+        protected abstract byte[] LoadAdfDataFromFile([NotNull] string filePath);
+        protected abstract Task<byte[]> LoadAdfDataFromFileAsync([NotNull] string filePath);
 
         protected static byte[] LoadAdfDataFromStream(Stream zipStream)
         {
