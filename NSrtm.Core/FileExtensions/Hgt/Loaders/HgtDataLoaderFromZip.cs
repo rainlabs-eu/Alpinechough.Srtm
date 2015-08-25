@@ -20,7 +20,7 @@ namespace NSrtm.Core
 
                 long length = entry.Length;
                 if (!HgtUtils.IsDataLengthValid(length))
-                    throw new NSrtmFileInvalidException(coords, string.Format("Invalid length - {0} bytes", length));
+                    throw new NSrtmFileInvalidException(string.Format("Invalid length - {0} bytes", length));
 
                 using (var zipStream = entry.Open())
                 {
@@ -37,7 +37,7 @@ namespace NSrtm.Core
 
                 long length = entry.Length;
                 if (!HgtUtils.IsDataLengthValid(length))
-                    throw new NSrtmFileInvalidException(coords, string.Format("Invalid length - {0} bytes", length));
+                    throw new NSrtmFileInvalidException(string.Format("Invalid length - {0} bytes", length));
 
                 using (var zipStream = entry.Open())
                 {
