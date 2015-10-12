@@ -2,9 +2,9 @@
 using NSrtm.Core.BicubicInterpolation;
 using Xunit;
 
-namespace NSrtm.Core.xTests
+namespace NSrtm.Core.xTests.BicubicInterpolation
 {
-    public class Spline3DCalculatorExternalDataTest
+    public class BicubicCalculatorExternalDataTest
     {
         [Theory]
         [MemberData("ExternalData")]

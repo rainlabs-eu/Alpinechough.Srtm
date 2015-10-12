@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using NSrtm.Core.BicubicInterpolation;
 using Xunit;
 
-namespace NSrtm.Core.xTests
+namespace NSrtm.Core.xTests.BicubicInterpolation
 {
-    public class Spline3DCalculatorSimpleTests
+    public class BicubicCalculatorWrongArgumentsTests
     {
         [Fact]
         public void EmptyValuesContainerThrowsArgumentNullException()
@@ -14,7 +14,7 @@ namespace NSrtm.Core.xTests
         }
 
         [Fact]
-        public void ValuesWithWrongSizeDimensionThrowsArgumentNullException()
+        public void ValuesWithWrongSizeDimensionThrowsArgumentException()
         {
             Assert.Throws<ArgumentException>(
                                                  () =>
@@ -29,7 +29,7 @@ namespace NSrtm.Core.xTests
         }
 
         [Fact]
-        public void ZeroStepThrowsArgumentNullException()
+        public void ZeroStepThrowsArgumentOutOfRangeException()
         {
             Assert.Throws<ArgumentOutOfRangeException>(
                                                  () =>
@@ -44,7 +44,7 @@ namespace NSrtm.Core.xTests
         }
 
         [Fact]
-        public void NegativeStepThrowsArgumentNullException()
+        public void NegativeStepThrowsArgumentOutOfRangeException()
         {
             Assert.Throws<ArgumentOutOfRangeException>(
                                                  () =>
